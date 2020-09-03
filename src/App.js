@@ -1,20 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import TodoList from "./components/TodoList";
-import store from "./store/store";
 import {connect} from "react-redux";
-import Modal from "./components/Modal";
-import {openModal} from "./store/actions/actionsCreators";
+import Modal from "./components/modal/Modal";
+import {openModal} from "./store/actions/actions";
+import ActionForm from "./components/actionForm/ActionForm";
+import TodoList from "./components/todoList/TodoList";
+
 
 function App(props) {
 
+  const testTemplate2 = (<ActionForm todoData={{}}/>);
+
+  function onModalOpenForEdit(){
+      props.handleOpenModal({content: testTemplate2, header: null})
+  }
+
+    function onModalOpenForCreate(){
+        props.handleOpenModal({content: testTemplate2, header: 'Create new todo'})
+    }
 
   return (
     <div className="App">
+        <button onClick={onModalOpenForCreate}>Add New</button>
+        <button onClick={onModalOpenForEdit}>EDIT</button>
         <TodoList todos={props.todos}/>
-        <button onClick={() => props.handleOpenModal(true)}>Add New</button>
-        <Modal />
+        <Modal/>
     </div>
   );
 }
@@ -27,7 +37,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleOpenModal: () => dispatch(openModal(true))
+    handleOpenModal: (modalConfig) => dispatch(openModal(modalConfig))
   }
 }
 
