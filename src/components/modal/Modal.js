@@ -2,6 +2,8 @@ import {connect} from "react-redux";
 import React from "react";
 import {closeModal} from "../../store/actions/actions";
 import './modal.css'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlus, faWindowClose} from "@fortawesome/free-solid-svg-icons";
 
 
 class Modal extends React.Component{
@@ -11,9 +13,9 @@ class Modal extends React.Component{
         return (
             <div className='modal-overlay'>
                 <div className='modal-container'>
+                    <FontAwesomeIcon icon={faPlus} className="close-popup" onClick={() => this.props.onClose()}/>
                     <h1>{this.props.header ? this.props.header : 'TodoList application'}</h1>
                     {this.props.body}
-                    <button onClick={() => this.props.onClose()}>Close</button>
                 </div>
             </div>
         )

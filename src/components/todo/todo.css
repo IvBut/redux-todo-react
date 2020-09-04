@@ -1,0 +1,60 @@
+li {
+    list-style-type: none;
+    padding: 15px;
+    background: var(--inprogressTaskBgColor);
+    box-shadow: 0px 3px 2px 2px darkgray;
+    color: var(--inprogressTaskTextColor);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li:hover {
+    cursor: text;
+}
+
+li.completed-colors {
+    background: var(--competedTaskBgColor);
+    color: var(--competedeTaskTextColor);
+}
+
+p:first-child {
+    flex: 0 1 75%;
+    text-align: justify;
+}
+
+p:last-child {
+    flex: 0 1 15%;
+    text-align: right;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.add-btn {
+    color: purple;
+    font-size: 48px;
+    transition: all 0.3s linear;
+}
+
+.add-btn:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+}
+
+.creation-mark {
+    text-align: left;
+    font-size: 12px;
+}
+
+.action-menu {
+    font-size: 32px;
+}
+
+.action-menu:hover {
+    cursor: pointer;
+}

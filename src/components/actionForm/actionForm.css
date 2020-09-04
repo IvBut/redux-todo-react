@@ -21,18 +21,6 @@ form {
     margin-bottom: 25px;
 }
 
-form button {
-    min-width: 150px;
-    padding: 10px;
-    border-radius: 3px;
-    outline: none;
-    cursor: pointer;
-    border: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.5s linear;
-}
-
 .create-btn {
     background: darkgreen;
     color: white;

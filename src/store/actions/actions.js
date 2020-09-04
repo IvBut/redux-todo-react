@@ -1,4 +1,4 @@
-import {ADD_TODO, CLOSE_MODAL, OPEN_MODAL} from "../constants/constants";
+import {ADD_TODO, CLOSE_MODAL, OPEN_MODAL, RESOLVE_TODO, UPDATE_TODO} from "../constants/constants";
 import nextId from "react-id-generator";
 
 export const openModal = ({content, header}) => {
@@ -20,4 +20,23 @@ export const createTodo = (todo) => {
           newTodo: {...todo, id: nextId(), resolved: false, creationDate: new Date().getTime()}
       }
   }
+};
+
+export const editTodo = (todo) => {
+    return {
+        type: UPDATE_TODO,
+        payload: {
+            updatedTodo: todo
+        }
+    }
+};
+
+export const resolveTodo = (id) => {
+    return {
+        type: RESOLVE_TODO,
+        payload: {
+            id
+        }
+    }
+
 };

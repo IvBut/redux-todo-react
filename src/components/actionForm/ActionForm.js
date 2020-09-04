@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import  './actionForm.css'
 import {connect} from "react-redux";
-import {createTodo} from "../../store/actions/actions";
+import {createTodo, editTodo} from "../../store/actions/actions";
 
 
 const ActionForm = (props) => {
-    let {todoData} = props
+    let {todoData} = props;
     let inpName;
     let disableBtn = false;
 
@@ -15,8 +15,8 @@ const ActionForm = (props) => {
             disableBtn = true;
             return null;
         }
-        let todo = {name : inpName.value};
-        props.onCreate(todo)
+        let todo = {...props.todoData, name : inpName.value};
+        todoData.id ? props.onEdit(todo) : props.onCreate(todo);
 
     };
 
@@ -38,7 +38,8 @@ const ActionForm = (props) => {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onCreate: (todo) => dispatch(createTodo(todo))
+        onCreate: (todo) => dispatch(createTodo(todo)),
+        onEdit: (todo) => dispatch(editTodo(todo))
     }
 }
 
