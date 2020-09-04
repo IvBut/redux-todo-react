@@ -1,4 +1,4 @@
-import {ADD_TODO, CLOSE_MODAL, OPEN_MODAL, RESOLVE_TODO, UPDATE_TODO} from "../constants/constants";
+import {ADD_TODO, CLOSE_MODAL, DELETE_TODO, OPEN_MODAL, RESOLVE_TODO, UPDATE_TODO} from "../constants/constants";
 import nextId from "react-id-generator";
 
 export const openModal = ({content, header}) => {
@@ -38,5 +38,13 @@ export const resolveTodo = (id) => {
             id
         }
     }
+};
 
+export const deleteTodo = (id) => {
+    return {
+        type: DELETE_TODO,
+        payload: {
+            id
+        }
+    }
 };

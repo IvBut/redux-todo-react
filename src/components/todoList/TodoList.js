@@ -3,7 +3,6 @@ import {Todo} from "../todo/Todo";
 import './todoList.css';
 
 const TodoList = ({todos}) => {
-    console.log('ARRAY ',todos)
     return (
         <div className="todo-list-wrapper">
             {todos.length > 0

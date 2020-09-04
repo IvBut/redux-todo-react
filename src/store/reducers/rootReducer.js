@@ -1,4 +1,12 @@
-import {ADD_TODO, CLOSE_MODAL, FILTER_BY, OPEN_MODAL, RESOLVE_TODO, UPDATE_TODO} from "../constants/constants";
+import {
+    ADD_TODO,
+    CLOSE_MODAL,
+    DELETE_TODO,
+    FILTER_BY,
+    OPEN_MODAL,
+    RESOLVE_TODO,
+    UPDATE_TODO
+} from "../constants/constants";
 
 const initialState = {
   todoList: [],
@@ -53,12 +61,22 @@ export const rootReducer = (state = initialState ,  action) => {
                 todoList: copiedArr
             };
         case RESOLVE_TODO :
-            let arr = [...state.todoList];
-
+            let todos = state.todoList.map((item ,index) => {
+               if (item.id === action.payload.id ) {
+                   item.resolved = true
+               }
+               return item
+            });
             return {
                 ...state,
-                todoList: []
+                todoList: todos
+            };
+        case DELETE_TODO :
+            return {
+                ...state,
+                todoList: state.todoList.filter(item => item.id !== action.payload.id)
             };
         default : return state
     }
 };
+

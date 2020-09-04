@@ -9,6 +9,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 li:hover {
@@ -57,4 +58,12 @@ p:last-child {
 
 .action-menu:hover {
     cursor: pointer;
+}
+
+.action-menu-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(100%);
+    z-index: 2;
 }

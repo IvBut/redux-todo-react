@@ -26,6 +26,12 @@ form {
     color: white;
 }
 
+.update-btn {
+    background: purple;
+    color: white;
+    margin-top: 25px;
+}
+
 .create-btn:hover {
     color: darkgreen;
     background: white;
